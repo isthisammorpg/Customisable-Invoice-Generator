@@ -5,9 +5,9 @@ This is a customizable invoice generator web application built using Django, Pyt
 ## Installation
 
 1. Clone the repository.
-2. Create a virtual environment and activate it(venv).
-3. Intall these packages: python3, pip3, django, xhtml2pdf
-4. Run the application: `python3 manage.py runserver`
+2. Activate the virtual environment using `source projectEnv/bin/activate`.
+3. Intall these packages(if not installed): python3, pip3, django, xhtml2pdf
+4. Run the application from the rp_assignment folder just one level after the root folder: `python3 manage.py runserver`
 
 ## Usage
 
