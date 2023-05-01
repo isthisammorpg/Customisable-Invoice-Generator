@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+    /* Form Styling */
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+  
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-right: 0.4rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  /* Grid Styling */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .col {
+    float: left;
+    width: 50%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  
+  /* Additional Styling */
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  @media (max-width: 768px) {
+    .col {
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+</style>
+{% endblock %}
+
+{% block content %}
+  <h1>Create Invoice</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+            <label for="seller_name">Seller Name:</label>
+            <input type="text" name="seller_name" id="seller_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="seller_email">Seller Email:</label>
+                <input type="email" name="seller_email" id="seller_email" class="form-control" required>
+            </div>
+            <div class="form-group">
+            <label for="seller_address">Seller Address:</label>
+            <textarea name="seller_address" id="seller_address" class="form-control" required></textarea>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+            <label for="customer_name">Customer Name:</label>
+            <input type="text" name="customer_name" id="customer_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_email">Customer Email:</label>
+                <input type="email" name="customer_email" id="customer_email" class="form-control" required>
+            </div>
+            <div class="form-group">
+            <label for="customer_address">Customer Address:</label>
+            <textarea name="customer_address" id="customer_address" class="form-control" required></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="invoice_number">Invoice Number:</label>
+      <input type="text" name="invoice_number" id="invoice_number" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="invoice_date">Invoice Date:</label>
+      <input type="date" name="invoice_date" id="invoice_date" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="due_date">Due Date:</label>
+      <input type="date" name="due_date" id="due_date" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="items">Items:(Item, Rate, Quantity)</label>
+      <textarea name="items" id="items" class="form-control" required></textarea>
+      </div>
+    <button type="submit" class="btn btn-primary">Create Invoice</button>
+  </form>
+{% endblock %}
+
+
